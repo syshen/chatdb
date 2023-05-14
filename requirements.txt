@@ -1,0 +1,8 @@
+streamlit
+openai
+python-dotenv
+SQLAlchemy
+pymysql
+pandas
+plotly
+google-cloud-bigquery
