@@ -9,7 +9,7 @@ Demo
 <video src="https://github.com/syshen/chatdb/assets/678081/415ca3d7-bd26-4446-9178-bf747a7b6100" controls="controls" style="max-width: 730px;">
 </video>
 
-Or check out the app [here](https://syshen-chatdb-chatdb-cwio9h.streamlit.app/).
+Or check out the app [here](https://chatdb.streamlit.app/).
 
 ## Setup
 
