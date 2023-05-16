@@ -112,7 +112,7 @@ def main():
     db_host = st.text_input("Hostname",
                             value=os.getenv("DB_HOST") if os.getenv("DB_HOST") else '')
     db_port = st.text_input("Port",
-                            value=os.getenv("DB_PORT") if os.getenv("DB_PORT") else 0)
+                            value=os.getenv("DB_PORT") if os.getenv("DB_PORT") else '')
     db_user = st.text_input("Username",
                             value=os.getenv("DB_USER") if os.getenv("DB_USER") else '')
     db_pass = st.text_input("Password",
@@ -122,7 +122,7 @@ def main():
                                 value=os.getenv("DB_DATABASE") if os.getenv("DB_DATABASE") else '')
 
 
-  if (db_host != '' and db_port != 0 and db_user != '' and db_pass != '' and db_database != ''):
+  if (db_host != '' and db_port != '' and db_user != '' and db_pass != '' and db_database != ''):
     with st.spinner("Loading ..."):
       db_conn, db_info = connectDB(db_selection,
                                   host=db_host,
