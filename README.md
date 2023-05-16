@@ -4,6 +4,12 @@
 
 ChatDB is a Streamlit demo application that translates human language into SQL queries and retrieves data from a database to present in diagram charts.
 
+Demo
+
+<video src="https://github.com/syshen/chatdb/assets/678081/415ca3d7-bd26-4446-9178-bf747a7b6100" controls="controls" style="max-width: 730px;">
+</video>
+
+
 ## Setup
 
 To install ChatDB, you will need the following:
