@@ -1,8 +1,8 @@
 streamlit
 openai
+tabulate
 python-dotenv
 SQLAlchemy
 pymysql
 pandas
 plotly
-google-cloud-bigquery

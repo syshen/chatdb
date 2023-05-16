@@ -43,14 +43,16 @@ If you choose to configure your settings in the UI, you can do so by clicking on
 If you choose to configure your settings in a .env file, you will need to create a file called .env in the root directory of the ChatDB project. In the .env file, you will need to add the following lines:
 
 ```
-OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+OPENAI_API_KEY=
 
-DB_TYPE=YOUR_DATABASE_TYPE
-DB_HOST=YOUR_DATABASE_HOST
-DB_PORT=YOUR_DATABASE_PORT
-DB_USER=YOUR_DATABASE_USER
-DB_PASS=YOUR_DATABASE_PASS
+DB_TYPE=
+DB_HOST=
+DB_PORT=
+DB_USER=
+DB_PASS=
 ```
+
+It supports "MySQL" and "PostgreSQL" as the DB_TYPE.
 
 You can type in a natural language query in the text box and ChatDB will translate it into an SQL query and execute it against the database. The results of the query will be displayed in a diagram chart.
 
