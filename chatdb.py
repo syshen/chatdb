@@ -93,7 +93,9 @@ def main():
   with st.sidebar:
     st.header("ChatDB")
     st.subheader("Configuration")
-    openai.api_key = st.text_input("OpenAI API Key", value=os.getenv("OPENAI_API_KEY"), type="password")
+    openai.api_key = st.text_input("OpenAI API Key", 
+                                  value=os.getenv("OPENAI_API_KEY") if os.getenv("OPENAI_API_KEY") else '',
+                                  type="password")
 
     st.subheader("Database")
 
@@ -107,14 +109,20 @@ def main():
 
     db_selection = st.selectbox("Database", db_options, index=db_option_index)
 
-    db_host = st.text_input("Hostname", value=os.getenv("DB_HOST"))
-    db_port = st.text_input("Port", value=os.getenv("DB_PORT"))
-    db_user = st.text_input("Username", value=os.getenv("DB_USER"))
-    db_pass = st.text_input("Password", value=os.getenv("DB_PASS"), type="password")
-    db_database = st.text_input("Database", value=os.getenv("DB_DATABASE"))
+    db_host = st.text_input("Hostname",
+                            value=os.getenv("DB_HOST") if os.getenv("DB_HOST") else '')
+    db_port = st.text_input("Port",
+                            value=os.getenv("DB_PORT") if os.getenv("DB_PORT") else 0)
+    db_user = st.text_input("Username",
+                            value=os.getenv("DB_USER") if os.getenv("DB_USER") else '')
+    db_pass = st.text_input("Password",
+                            value=os.getenv("DB_PASS") if os.getenv('DB_PASS') else '',
+                            type="password")
+    db_database = st.text_input("Database",
+                                value=os.getenv("DB_DATABASE") if os.getenv("DB_DATABASE") else '')
 
 
-  if (db_host and db_port and db_user and db_pass and db_database):
+  if (db_host != '' and db_port != 0 and db_user != '' and db_pass != '' and db_database != ''):
     with st.spinner("Loading ..."):
       db_conn, db_info = connectDB(db_selection,
                                   host=db_host,
@@ -123,13 +131,11 @@ def main():
                                   password=db_pass,
                                   database=db_database)
   else:
-    st.info("Configure database information before using it.")
+    st.info("Set up your database info before you start using it.")
   
-  input = st.text_area("Your question", placeholder="Put your question here", label_visibility="collapsed")
-  if input:
-    if not db_conn:
-      st.error("Database isn't connected")
-    else:
+  if db_conn:
+    input = st.text_area("Your question", placeholder="Put your question here", label_visibility="collapsed")
+    if input:
       with st.spinner("AI is thinking ... "):
         response = chatCompletion(db_info, input)
 
